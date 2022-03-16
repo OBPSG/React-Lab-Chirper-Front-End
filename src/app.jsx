@@ -2,12 +2,25 @@ import React from 'react';
 import Post from './components/post';
 
 function App() {
+    const postArr = [
+        {
+            userName: "Some Rando",
+            body: "This is a test post!"
+        },
+        {
+            userName: "OBP Super Gamer",
+            body: "Video Games are lots of fun!"
+        },
+        {
+            userName: "Leftover Sundriez Man",
+            body: "I like to build stuff and listen to electronic music!"
+        }
+    ];
+
     return (
-        <div>
+        <div className="container">
             <h1>Latest Posts on Chirper:</h1>
-            <Post userName="OBP Super Gamer" body="Video Games are lots of fun!"></Post>
-            <Post userName="Leftover Sundriez Man" body="I like to listen to electronic music!"></Post>
-            <Post userName="Some other Rando" body="This is a test post!"></Post>
+            {postArr.map((post) => {return <Post userName={post.userName} body={post.body}></Post>})}
         </div>
     );
 }
