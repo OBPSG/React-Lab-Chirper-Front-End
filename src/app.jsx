@@ -28,22 +28,26 @@ function App() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Post button clicked!");
-        const newPostList = [{
-            userName: userName,
-            body: postText,
-            
-        }].concat(postList);
-        setPostList(newPostList);
-        setUserName("");
-        setPostText("");
+        //console.log("Post button clicked!");
+        if (userName !== "" && postText !== "") {
+            const newPostList = [{
+                userName: userName,
+                body: postText,
+
+            }].concat(postList);
+            setPostList(newPostList);
+            setUserName("");
+            setPostText("");
+        }
     }
 
     return (
         <div className="container">
             <h1>Latest Posts on Chirper:</h1>
-            {postList.map((post) => {postKey += 1;
-                return <Post key={postKey} userName={post.userName} body={post.body} time={post.time}></Post>})}
+            {postList.map((post) => {
+                postKey += 1;
+                return <Post key={postKey} userName={post.userName} body={post.body} time={post.time}></Post>
+            })}
             <form className="form-group col-md-9 mt-4" onSubmit={handleSubmit}>
                 <label>Create New Post</label>
                 <input value={userName} onChange={(event) => setUserName(event.target.value)} type="text" className="form-control w-50" id="userName" name="userName" placeholder="User Name"></input>
