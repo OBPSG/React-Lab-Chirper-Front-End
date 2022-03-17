@@ -44,11 +44,11 @@ function App() {
             <h1>Latest Posts on Chirper:</h1>
             {postList.map((post) => {postKey += 1;
                 return <Post key={postKey} userName={post.userName} body={post.body} time={post.time}></Post>})}
-            <form className="form-group col-9 mt-4" onSubmit={handleSubmit}>
-                <label htmlFor="userName">User Name:</label>
-                <input value={userName} onChange={(event) => setUserName(event.target.value)} type="text" className="form-control w-50" id="userName" name="userName"></input>
-                <input value={postText} onChange={(event) => setPostText(event.target.value)} type="text" className="form-control" placeholder="Post text here..."></input>
-                <input type="submit" className="form-control mt-2"></input>
+            <form className="form-group col-md-9 mt-4" onSubmit={handleSubmit}>
+                <label>Create New Post</label>
+                <input value={userName} onChange={(event) => setUserName(event.target.value)} type="text" className="form-control w-50" id="userName" name="userName" placeholder="User Name"></input>
+                <textarea value={postText} onChange={(event) => setPostText(event.target.value)} type="text" className="form-control" placeholder="Post text here..."></textarea>
+                <input type="submit" value="Post" className="btn mt-2 px-5 bg-success text-white"></input>
             </form>
         </div>
     );

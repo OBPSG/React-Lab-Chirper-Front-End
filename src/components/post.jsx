@@ -3,10 +3,12 @@ import Moment from 'react-moment';
 
 function Post(props) {
     return(
-        <div className="card col-9 mt-2">
-            <h2 className="card-title">{props.userName}</h2>
-            <p className="card-body">{props.body}</p>
-            <h6>Posted on <Moment>{props.time}</Moment></h6>
+        <div className="card col-md-9 mt-3 shadow border-primary">
+            <h2 className="card-title mx-2">{props.userName}</h2>
+            <div className="card-body">
+                <p>{props.body}</p>
+            </div>
+            <h6 className="text-muted" style={{textAlign: "right"}}>Posted on <Moment>{props.time}</Moment></h6>
         </div>
     );
 }
