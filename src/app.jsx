@@ -18,10 +18,11 @@ function App() {
     ];
 
     const [postList, setPostList] = React.useState(initialPostArr);
+    let postKey = 0;
     const [userName, setUserName] = React.useState("");
     const [postText, setPostText] = React.useState("");
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Post button clicked!");
         const newPostList = [{
@@ -36,7 +37,8 @@ function App() {
     return (
         <div className="container">
             <h1>Latest Posts on Chirper:</h1>
-            {postList.map((post) => { return <Post userName={post.userName} body={post.body}></Post> })}
+            {postList.map((post) => {postKey += 1;
+                return <Post key={postKey} userName={post.userName} body={post.body}></Post>})}
             <form className="form-group col-9 mt-4" onSubmit={handleSubmit}>
                 <label htmlFor="userName">User Name:</label>
                 <input value={userName} onChange={(event) => setUserName(event.target.value)} type="text" className="form-control w-50" id="userName" name="userName"></input>
